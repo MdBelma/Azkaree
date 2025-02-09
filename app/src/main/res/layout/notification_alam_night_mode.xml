@@ -37,7 +37,7 @@
         android:id="@+id/txtTimeNotificationAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12:00 PM"
+        android:text="@string/txt_time_notification"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:layout_marginStart="16dp"/>
