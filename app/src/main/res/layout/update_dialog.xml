@@ -1,98 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Edit_Notification_Time"
     android:layout_width="350dp"
     android:layout_height="200dp"
-    app:cardElevation="2dp"
-    app:cardCornerRadius="2dp"
     android:layout_gravity="center"
-    android:background="?attr/cardBackgroundColor"
-    android:id="@+id/Edit_Notification_Time"
-    >
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp"
+    android:background="?attr/cardBackgroundColor">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:gravity="center"
-        android:background="?attr/cardBackgroundColor"
-        android:orientation="vertical">
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-
+        <!-- Title and Time Display -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:background="?attr/cardBackgroundColor"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="معدل ظهور الاشعارات كل "
-                android:textColor="?attr/textcolor"
+                android:text="@string/average_notification"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/txtTimeSBar_setting"
+                android:id="@+id/txtTimeSBarSetting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="3"
-                android:textColor="?attr/textcolor"
-                android:textSize="20sp" />
+                android:textColor="?attr/textColor"
+                android:textSize="18sp"
+                android:layout_marginStart="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="دقيقة"
-                android:layout_marginStart="5dp"
-                android:textColor="?attr/textcolor"
-                android:textSize="20dp" />
+                android:textColor="?attr/textColor"
+                android:textSize="18sp"
+                android:layout_marginStart="4dp" />
         </LinearLayout>
 
+        <!-- SeekBar -->
         <SeekBar
             android:id="@+id/seekBar"
-            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_azkare"
             android:max="60"
-            android:min="3"
             android:progress="3"
             android:progressTint="@color/colorAccent"
-            android:thumbTint="@color/colorAccent" />
+            android:thumbTint="@color/colorAccent"
+            android:layout_marginTop="10dp" />
 
-
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btn_save"
-            android:text="حفظ"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:visibility="gone" />
+        <!-- Save Button -->
         <Button
             android:id="@+id/btn_save_edit"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_startview"
-            android:elevation="2dp"
+            android:elevation="3dp"
             android:text="حفظ"
             android:textColor="#ffffff"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:visibility="visible"
-           />
+            android:layout_marginTop="12dp" />
     </LinearLayout>
-
-
 
 </androidx.cardview.widget.CardView>

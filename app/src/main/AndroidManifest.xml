@@ -2,59 +2,81 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ibrahim7.azkaree">
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!--  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />-->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+
 
     <application
         android:name="com.ibrahim7.azkaree.model.MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_logo_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.ibrahim7.azkaree.Activity.splash"
-            android:screenOrientation="portrait"
-            >
+
+        <!-- Splash Activity -->
+        <activity
+            android:name="com.ibrahim7.azkaree.activity.splash"
+            android:exported="true"
+            tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <service
-            android:name="com.ibrahim7.azkaree.Service.MyService"
-            android:enabled="true"
+        <!-- Main Activity -->
+        <activity
+            android:name="com.ibrahim7.azkaree.activity.MainActivity"
             android:exported="true" />
 
-        <activity android:name="com.ibrahim7.azkaree.Activity.MainActivity"
-            android:screenOrientation="portrait"
-            />
+        <!-- ViewPager Activity -->
         <activity
-            android:name="com.ibrahim7.azkaree.Activity.ViewPagerScreen"
-            android:theme="@style/NoActionbarTheme"
-            android:screenOrientation="portrait">
+            android:name="com.ibrahim7.azkaree.activity.ViewPagerScreen"
+            android:exported="true"
+            android:theme="@style/NoActionbarTheme" />
 
-        </activity>
-
-        <receiver
-            android:name=".Receiver.MyReceiver"
+        <!-- MyService -->
+        <service
+            android:name=".service.MyService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback|dataSync"
+            />
+
+        <!-- MyReceiver -->
+        <receiver
+            android:name=".receiver.MyReceiver"
+            android:enabled="true"
+            android:exported="false">
             <intent-filter>
-                <action android:name="com.example.nurbk.ps.appathkar.previous" />
-                <action android:name="com.example.nurbk.ps.appathkar.delete" />
-                <action android:name="com.example.nurbk.ps.appathkar.pause" />
-                <action android:name="com.example.nurbk.ps.appathkar.play" />
-                <action android:name="com.example.nurbk.ps.appathkar.next" />
+                <action android:name="com.ibrahim7.azkaree.NOTIFY_DELETE" />
+                <action android:name="com.ibrahim7.azkaree.ACTION_PREVIOUS" />
+                <action android:name="com.ibrahim7.azkaree.ACTION_DELETE" />
+                <action android:name="com.ibrahim7.azkaree.ACTION_PAUSE" />
+                <action android:name="com.ibrahim7.azkaree.ACTION_PLAY" />
+                <action android:name="com.ibrahim7.azkaree.ACTION_NEXT" />
             </intent-filter>
         </receiver>
+
+        <!-- BroadcastReceiverNotifictionAlarm -->
         <receiver
-            android:name=".Receiver.BroadcastReceiverNotifictionAlarm"
+            android:name=".receiver.BroadcastReceiverNotifictionAlarm"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>

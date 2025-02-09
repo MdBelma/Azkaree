@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".Activity.ViewPagerScreen">
+    tools:context=".activity.ViewPagerScreen">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:contentDescription="@string/swipe_to_view_introduction_slides"
         app:layout_constraintBottom_toTopOf="@+id/tab_indicator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -19,13 +19,13 @@
         app:layout_constraintVertical_bias="0.379" />
 
     <TextView
-
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_azkare"
-        android:text="تخطي"
-        android:textColor="#B4B4B4"
+        android:text="@string/next_bt"
+        android:textColor="#707070"
+        android:contentDescription="@string/next_button_to_proceed_to_the_next_slide"
         app:layout_constraintBottom_toBottomOf="@+id/tab_indicator"
         app:layout_constraintEnd_toStartOf="@+id/tab_indicator"
         app:layout_constraintHorizontal_bias="0.25"
@@ -38,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:contentDescription="@string/slide_indicators"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,11 +53,12 @@
         android:layout_marginBottom="66dp"
         android:background="@drawable/btn_startview"
         android:elevation="2dp"
-        android:text="إبدأ"
+        android:text="@string/do_it"
         android:textColor="#ffffff"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
+        android:contentDescription="@string/start_button_to_begin_using_the_app"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -67,6 +69,7 @@
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:visibility="gone"
+        android:contentDescription="@string/dialog_to_set_notification_frequency"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_GetStarted"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +85,6 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="معدل ظهور الاشعارات كل "
+                    android:text="@string/average_notification_splash"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
 
@@ -102,18 +104,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="3"
+                    android:text="@string/time_sbar"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:contentDescription="@string/notification_frequency_set_to_3_minutes" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="دقيقة"
+                    android:text="@string/minute"
                     android:layout_marginStart="5dp"
                     android:textColor="@android:color/black"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <SeekBar
@@ -127,13 +130,10 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/btn_azkare"
                 android:max="60"
-                android:min="3"
                 android:progress="3"
                 android:progressTint="@color/colorAccent"
-                android:thumbTint="@color/colorAccent" />
-
+                android:thumbTint="@color/colorAccent"
+                android:contentDescription="@string/seekbar_to_adjust_notification_frequency" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

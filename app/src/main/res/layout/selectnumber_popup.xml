@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
@@ -21,9 +19,9 @@
     android:layout_height="wrap_content"
     android:text="حدد الرقم الذي تريده"
     android:layout_gravity="center"
-    android:textSize="17dp"
+    android:textSize="17sp"
     android:textStyle="bold"
-    android:textColor="?attr/textcolor"
+    android:textColor="?attr/textColor"
     android:layout_marginTop="15dp"
     android:layout_marginBottom="5dp"/>
     <LinearLayout
@@ -31,21 +29,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-
+        <!-- Ensure the height meets the minimum touch target size -->
         <EditText
             android:id="@+id/etxt_number"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="اكتب هنا"
-            android:textColor="?attr/textcolor"
-            android:textColorHint="?attr/textcolor"
-            android:maxLength="6"
-            android:inputType="number"
-            android:layout_marginBottom="15dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="25dp"
-            android:layout_marginStart="25dp"/>
-
+            android:layout_marginBottom="15dp"
+            android:autofillHints=""
+            android:hint="اكتب هنا"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="?attr/textColor"
+            android:textColorHint="?attr/textColorHint" />
+        <!-- Use a color that ensures good contrast -->
         <Button
             android:id="@+id/btn_save"
             android:layout_width="match_parent"
@@ -53,7 +52,7 @@
             android:text="حفظ"
             android:elevation="2dp"
             android:background="@drawable/btn_save"
-            android:textColor="@color/white"
+            android:textColor="?android:attr/textColorPrimaryInverse"
             android:layout_marginBottom="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="25dp"

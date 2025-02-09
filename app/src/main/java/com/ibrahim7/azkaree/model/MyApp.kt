@@ -3,22 +3,21 @@ package com.ibrahim7.azkaree.model
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.graphics.Color
 import android.os.Build
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import com.ibrahim7.azkaree.R
-import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MyApp : Application() {
 
-
     companion object {
-        var sharedRefrance : SharedPrefTheme? = null
+        var sharedRefrance: SharedPrefTheme? = null
+        const val CHANNEL_ID = "channel_id"
 
-        fun replaceFragment(f: Fragment,activity: AppCompatActivity) {
+        fun replaceFragment(f: Fragment, activity: AppCompatActivity) {
             activity.supportFragmentManager.beginTransaction().replace(R.id.mainContainer, f).commit()
         }
 
@@ -26,38 +25,44 @@ class MyApp : Application() {
             activity.supportFragmentManager.beginTransaction().replace(R.id.mainContainer, f).addToBackStack(null).commit()
         }
 
+        fun addbackArrow(activity: AppCompatActivity) {
+            val toolbar = activity.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_main)
+            val navigationView = activity.findViewById<View>(R.id.navigation_view)
 
-        fun addbackArrow(activity: AppCompatActivity){
-            activity.navigation_view.visibility = View.GONE
-            activity.toolbar_main.setNavigationIcon(
-                if (Locale.getDefault().displayLanguage == "English"){
-                    R.drawable.ic_arrow_ar
-                }else{
-                    R.drawable.ic_arrow_en
-                }
-            )
-            activity.toolbar_main.setNavigationOnClickListener {
+            navigationView.visibility = View.GONE
+            toolbar.setNavigationIcon(R.drawable.ic_back_arrow)
+            toolbar.setNavigationOnClickListener {
                 activity.onBackPressed()
             }
         }
 
-        fun CheckTheme(activity: AppCompatActivity){
+        fun CheckTheme(activity: AppCompatActivity) {
             sharedRefrance = SharedPrefTheme(activity)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (sharedRefrance!!.loadNightModeState() == true) {
-                    activity.window.statusBarColor = Color.rgb(66, 66, 66)
-                    activity.toolbar_main.setBackgroundColor( Color.rgb(66, 66, 66))
-                    activity.setTheme(R.style.darktheme)
-                    activity.navigation_view.setBackgroundColor(Color.rgb(66, 66, 66))
-                } else if (sharedRefrance!!.loadNightModeState() == false) {
-                    activity.setTheme(R.style.AppTheme)
-                    activity.window.statusBarColor = Color.rgb(0, 205, 107)
-                    activity.toolbar_main.setBackgroundColor( Color.rgb(0, 205, 107))
-                    activity.navigation_view.setBackgroundColor(Color.WHITE)
+            val toolbar = activity.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_main)
+            val navigationView = activity.findViewById<View>(R.id.navigation_view)
 
+            sharedRefrance?.let {
+                val window = activity.window
+                val controller = WindowInsetsControllerCompat(window, window.decorView)
+
+                if (it.loadNightModeState() == true) {
+                    window.statusBarColor = ContextCompat.getColor(activity, R.color.dark_status_bar)
+                    controller.isAppearanceLightStatusBars = false // Dark theme, light icons
+
+                    toolbar.setBackgroundColor(ContextCompat.getColor(activity, R.color.dark_toolbar))
+                    activity.setTheme(R.style.darktheme)
+                    navigationView.setBackgroundColor(ContextCompat.getColor(activity, R.color.dark_nav_view))
+                } else {
+                    activity.setTheme(R.style.AppTheme)
+                    window.statusBarColor = ContextCompat.getColor(activity, R.color.light_status_bar)
+                    controller.isAppearanceLightStatusBars = true // Light theme, dark icons
+
+                    toolbar.setBackgroundColor(ContextCompat.getColor(activity, R.color.light_toolbar))
+                    navigationView.setBackgroundColor(ContextCompat.getColor(activity, R.color.light_nav_view))
                 }
             }
         }
+
 
     }
 
@@ -68,18 +73,18 @@ class MyApp : Application() {
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel1 = NotificationChannel(
-                SettingSystemString.CHANNEL_ID,
-                "Channel 1",
-                NotificationManager.IMPORTANCE_HIGH
-            )
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                "Azkaree Notifications",
+                NotificationManager.IMPORTANCE_HIGH // تأكد من أهمية القناة لإظهار الإشعارات بشكل واضح
+            ).apply {
+                description = "Channel for all Azkaree notifications"
+                enableLights(true)
+                enableVibration(true)
+            }
 
-            channel1.description = "This is Channel 1"
-
-
-            val manager =
-                getSystemService(NotificationManager::class.java)
-            manager!!.createNotificationChannel(channel1)
+            val manager = getSystemService(NotificationManager::class.java)
+            manager?.createNotificationChannel(channel)
         }
     }
 

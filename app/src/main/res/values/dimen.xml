@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="notification_margin">8dp</dimen>
+    <dimen name="notification_corner_radius">8dp</dimen>
+    <dimen name="notification_elevation">4dp</dimen>
+    <dimen name="notification_padding">16dp</dimen>
+    <dimen name="notification_image_margin_start">8dp</dimen>
+    <dimen name="notification_text_size">15sp</dimen>
+</resources>

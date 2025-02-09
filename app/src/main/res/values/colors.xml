@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Other colors -->
+    <color name="notification_background">#FFFFFF</color>
+    <color name="notification_text">#000000</color>
+    <color name="notification_text_color">#2B2B2B</color>
+
+    <!-- color for text from github -->
+    <color name="textColor">#0000FF</color>
+    <color name="textColorHint">#757575</color>
+
+    <color name="dark_background">#000000</color>
+    <color name="dark_background_pressed">#333333</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#2B2B2B</color>
+<!--review textcolor -->
+    <color name="textcolor">#9E9D24</color>
     <color name="colorPrimary">#00CD6B</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#00CD6B</color>
-    <color name="white">#ffffff</color>
 
 
 
@@ -16,4 +31,13 @@
     <color name="tab_indicator_gray">#c0c0c0</color>
     <color name="itro_title_color">#000000</color>
     <color name="itro_description_color">#656565</color>
+    <!-- Light Theme Colors -->
+    <color name="light_status_bar">#FFFFFFFF</color> <!-- White -->
+    <color name="light_toolbar">#FF6200EE</color> <!-- Purple -->
+    <color name="light_nav_view">#FFFFFFFF</color> <!-- White -->
+
+    <!-- Dark Theme Colors -->
+    <color name="dark_status_bar">#FF121212</color> <!-- Dark Gray -->
+    <color name="dark_toolbar">#FF000000</color> <!-- Black -->
+    <color name="dark_nav_view">#FF121212</color> <!-- Dark Gray -->
 </resources>

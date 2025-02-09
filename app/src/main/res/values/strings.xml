@@ -1,4 +1,8 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Other strings -->
+    <string name="channel_name">Azkar Notifications</string>
+    <string name="channel_description" tools:ignore="MissingTranslation">Channel for Azkar notifications</string>
     <string name="app_name">Azkaree</string>
 
     <string name="longtext" translatable="false">أَعُوذُ بِاللهِ مِنْ الشَّيْطَانِ الرَّجِيمِ
@@ -9,5 +13,32 @@
 [آية الكرسى - البقرة 255].</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="imageView" translatable="false">logo</string>
+    <string name="txt_version">Android</string>
+    <string name="notification_number">عدد مرات ظهور الإشعارات</string>
+    <string name="app_logo_description">logo</string>
+    <string name="sample_text">سبحان الله وبحمده</string>
+    <string name="sample_time">time</string>
+    <string name="logo">logo</string>
+    <string name="time">1:40</string>
+    <string name="average_notification">…كل</string>
+    <string name="logo_description">app logo</string>
+    <string name="time_content_description">time</string>
+    <string name="notification_title_alarm">وذكر</string>
+    <string name="layout">layout</string>
+    <string name="logo_image">رمز الإشعارات</string>
+    <string name="next_bt">تخطي</string>
+    <string name="swipe_to_view_introduction_slides">Swipe to view introduction slides</string>
+    <string name="next_button_to_proceed_to_the_next_slide">Next button to proceed to the next slide</string>
+    <string name="slide_indicators">Slide indicators</string>
+    <string name="do_it">إبدأ</string>
+    <string name="start_button_to_begin_using_the_app">Start button to begin using the app</string>
+    <string name="dialog_to_set_notification_frequency">Dialog to set notification frequency</string>
+    <string name="average_notification_splash">معدل ظهور الاشعارات كل</string>
+    <string name="time_sbar">3</string>
+    <string name="notification_frequency_set_to_3_minutes">Notification frequency set to 3 minutes</string>
+    <string name="minute">دقيقة</string>
+    <string name="seekbar_to_adjust_notification_frequency">SeekBar to adjust notification frequency</string>
+    <string name="txt_content_notification_alarm">سبحان الله وبحمده</string>
 </resources>

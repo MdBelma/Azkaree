@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 android:background="#2B2B2B"
     android:id="@+id/splash"
-    tools:context=".Activity.splash">
+    tools:context=".activity.splash">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +24,7 @@ android:background="#2B2B2B"
             android:id="@+id/ic_logo"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:contentDescription="here is a logo"
             android:src="@drawable/ic_app_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +40,7 @@ android:background="#2B2B2B"
             android:gravity="center"
             android:text="أذكاري"
             android:textColor="#ffffff"
-            android:textSize="30dp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

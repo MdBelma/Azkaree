@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
-    tools:context=".Fragment.AboutApp">
+    tools:context=".fragment.AboutApp">
 
 
     <ImageView
@@ -13,6 +13,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="52dp"
+        android:contentDescription="@string/imageView"
         android:src="@drawable/ic_app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -24,8 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textColor="?attr/textcolor"
-        android:textSize="18dp"
+        android:textColor="?attr/textColor"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,9 +39,9 @@
         android:id="@+id/txt_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Android"
-        android:textColor="?attr/textcolor"
-        android:textSize="15dp"
+        android:text="@string/txt_version"
+        android:textColor="?attr/textColor"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"

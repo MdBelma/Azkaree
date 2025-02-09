@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# Add your ProGuard rules here
+-keep class androidx.compose.** { *; }
+-keep class androidx.activity.** { *; }
+# Add other rules as per your requirements

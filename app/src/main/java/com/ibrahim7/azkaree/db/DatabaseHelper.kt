@@ -2,6 +2,7 @@ package com.ibrahim7.azkaree.db
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.ibrahim7.azkaree.model.Athker
@@ -10,8 +11,8 @@ class DatabaseHelper(var context: Context) :
     SQLiteOpenHelper(context, DATABSE_NAME, null, VERSION) {
 
     companion object {
-        val DATABSE_NAME = "Version 1.0.1"
-        val VERSION = 6
+        const val DATABSE_NAME = "Version 1.0.1"
+        const val VERSION = 6
     }
 
     val dbw = writableDatabase
@@ -29,7 +30,17 @@ class DatabaseHelper(var context: Context) :
         db.execSQL("DROP TABLE IF EXISTS ${Athker.TABLE_NAME}")
         onCreate(db)
     }
+    // Extension function to safely get an Int column value
+    private fun Cursor.getInt(columnName: String, defaultValue: Int = 0): Int {
+        val index = getColumnIndex(columnName)
+        return if (index >= 0) getInt(index) else defaultValue
+    }
 
+    // Extension function to safely get a String column value
+    private fun Cursor.getString(columnName: String, defaultValue: String = ""): String {
+        val index = getColumnIndex(columnName)
+        return if (index >= 0) getString(index) else defaultValue
+    }
 
     fun getAllData(): ArrayList<Athker> {
         val data = ArrayList<Athker>()
@@ -39,11 +50,11 @@ class DatabaseHelper(var context: Context) :
         while (!query.isAfterLast) {
             data.add(
                 Athker(
-                    query.getInt(query.getColumnIndex(Athker.COL_ID)),
-                    query.getString(query.getColumnIndex(Athker.COL_CONTENT)),
-                    query.getInt(query.getColumnIndex(Athker.COL_COUNTER)),
-                    query.getInt(query.getColumnIndex(Athker.COL_STATUS)),
-                    query.getInt(query.getColumnIndex(Athker.COL_TYPE))
+                    query.getInt(Athker.COL_ID, -1), // Default value if column doesn't exist
+                    query.getString(Athker.COL_CONTENT, ""),
+                    query.getInt(Athker.COL_COUNTER, 0),
+                    query.getInt(Athker.COL_STATUS, 0),
+                    query.getInt(Athker.COL_TYPE, 0)
                 )
             )
             query.moveToNext()
