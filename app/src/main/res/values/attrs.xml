@@ -3,7 +3,7 @@
     <declare-styleable name="ds">
         <attr name="notificationBackground" format="reference|color" />
         <attr name="notificationTextColor" format="reference|color" />
-        <attr name="textColor" format="color" ></attr>
+        <attr name="textColor" format="color" />
         <attr name="textColorHint" format="color" />
         <attr name="backgroundcolor" format="color"/>
         <attr name="backgroundtoolbar" format="color"/>
