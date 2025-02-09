@@ -41,4 +41,5 @@
     <string name="minute">دقيقة</string>
     <string name="seekbar_to_adjust_notification_frequency">SeekBar to adjust notification frequency</string>
     <string name="txt_content_notification_alarm">سبحان الله وبحمده</string>
+    <string name="txt_time_notification">24:00</string>
 </resources>

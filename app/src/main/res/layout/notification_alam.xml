@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:text="12:00 PM"
+        android:text="@string/txt_time_notification"
         android:textColor="@android:color/darker_gray"
         android:layout_marginStart="16dp"/>
 
